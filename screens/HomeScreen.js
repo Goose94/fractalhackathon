@@ -9,6 +9,7 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
+import { PricingCard, ListItem, Button, Icon, Divider, CheckBox } from 'react-native-elements'
 
 import { MonoText } from '../components/StyledText';
 
@@ -21,21 +22,45 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-            <Text style={styles.getStartedText}> Welcome to the Fractal Hackathon</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
+            <View style={styles.headerContainer}>
+              <Text style={styles.headerText}> OVERVIEW</Text>
             </View>
-
+            <PricingCard
+              color="#ecb345"
+              title="Wodco"
+              price="£117,926"
+              info={['Credit Rating - ']}
+              button={{ title: 'Transactions', icon: 'flight-takeoff' }}
+            />
+            <Text style={styles.headerTextLeft}> Things To Do</Text>
+              <CheckBox
+                center
+                title='Enable Credit Decisioning'
+                iconRight
+                iconType='material'
+                checkedIcon='clear'
+                uncheckedIcon='arrow-forward'
+                checkedColor='red'
+              />
+              <CheckBox
+                center
+                title='Collect Revenue'
+                iconRight
+                iconType='material'
+                checkedIcon='clear'
+                uncheckedIcon='arrow-forward'
+                checkedColor='#ecb345'
+              />
+              <CheckBox
+                center
+                title='Check your insights'
+                iconRight
+                iconType='material'
+                checkedIcon='clear'
+                uncheckedIcon='arrow-forward'
+                checkedColor='red'
+              />
         </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>Lets connect to the Fractal API</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
       </View>
     );
   }
@@ -75,8 +100,18 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  logo: {
+    flex: 1,
+    width: 500,
+    height: 100,
+  },
   container: {
     flex: 1,
+    backgroundColor: '#fff',
+  },
+  headerContainer: {
+    flex: 1,
+    marginTop: 20,
     backgroundColor: '#fff',
   },
   developmentModeText: {
@@ -160,5 +195,16 @@ const styles = StyleSheet.create({
   helpLinkText: {
     fontSize: 14,
     color: '#2e78b7',
+  },
+  headerText: {
+    fontSize: 26,
+    color: 'rgba(96,100,109, 1)',
+    textAlign: 'center',
+  },
+  headerTextLeft: {
+    fontSize: 26,
+    color: 'rgba(96,100,109, 1)',
+    textAlign: 'left',
+    fontWeight: 'bold',
   },
 });
